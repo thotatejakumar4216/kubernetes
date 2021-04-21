@@ -63,8 +63,8 @@ ssh-keygen
 kops create cluster \
 --state=${KOPS_STATE_STORE} \
 --node-count=2 \
---master-size=t2.micro \
---node-size=t2.micro \
+--master-size=t3.micro \
+--node-size=t3.micro \
 --zones=ap-south-1a,ap-south-1b \
 --name=${KOPS_CLUSTER_NAME} \
 --dns private \
@@ -74,7 +74,7 @@ kops create cluster \
 ### 10. Create kubernetes cluster
 
 ```sh
-kops update cluster --yes
+kops update cluster --yes --admin
 ```
 Above command may take some time to create the required infrastructure resources on AWS. Execute the validate command to check its status and wait until the cluster becomes ready
 
